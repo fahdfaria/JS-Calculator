@@ -1,0 +1,193 @@
+
+@import url('https://fonts.googleapis.com/css?family=Orbitron|Saira+Stencil+One&display=swap');
+
+*{
+  box-sizing: border-box;
+  font-size: 1.2rem;
+  font-family: 'Saira Stencil One', cursive;
+  color: #fff;
+}
+
+#error{
+  background-color: red;
+  position: absolute;
+  opacity: 0;
+  transition: 0.5s;
+  display: flex;
+}
+
+.errormessage{
+  width: 100%;
+  height: 50%;
+  z-index:1;
+  text-align: center;
+  font-size: 2rem;
+  font-family: "Helvetica";
+}
+
+h1{
+  text-align: center;
+}
+
+body{
+
+  position: relative;
+  background-color: #36373d;
+}
+
+main{
+  /* margin: 0 auto; */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#historybutton{
+  background-color: #cfae3a;
+  display: flex;
+  margin: 0 auto;
+  width: 90%;
+  justify-content: center;
+}
+
+
+.calculatorContainer{
+  position: relative;
+
+}
+
+.CalculatorGrid{
+  /* display: grid;
+  grid-template-columns: auto auto;
+  grid-column-gap: 5px;
+  grid-row-gap: 5px; */
+
+}
+
+.displays{
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  /* border: black solid 1px; */
+  /* position: relative; */
+}
+
+#opsvalue{
+  /* display: flex;
+  flex-direction: column;
+    margin: 0 auto;
+    /* width: 100%; */
+  /* border: black solid 1px; */
+}
+
+#calculationval{
+  /* border: black solid 1px; */
+}
+
+#screenvalue{
+
+}
+
+
+input{
+  height: 5rem;
+  overflow: auto;
+  text-align: right;
+  width: 100%;
+  border-style: none;
+  background-color: #3f3f3f;
+  color: #fff;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.4rem;
+  position: relative;
+}
+
+input::placeholder{
+  text-align: left;
+}
+
+button{
+  border-style: none;
+  color: #fff;
+}
+
+button:hover, button:active {
+  opacity: 0.7;
+}
+
+.clearReset{
+  display: flex;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  /* justify-content: flex-end; */
+}
+
+.numbers{
+  /* grid-row: 3; */
+  display: grid;
+  grid-template-columns: auto auto auto;
+  margin: 5px auto 5px auto;
+  grid-column-gap: 1px;
+  grid-row-gap: 1px;
+}
+
+
+.operators{
+  display: flex;
+  margin-top: 3px;
+}
+
+.extraoperators{
+  display: flex;
+
+}
+
+.resetclear{
+  width: 100%;
+  height: 3rem;
+  background-color: #4c4c63;
+  margin-left: 5px;
+}
+
+.ops, .extraops{
+  width: 100%;
+  height: 2.8rem;
+  background-color: #636363;
+  margin-left: 1px;
+}
+
+.number{
+  width: 100%;
+  height: 3rem;
+  background-color: #292828;
+  font-family: 'Orbitron', sans-serif;
+
+}
+
+/* ALIGNING 0 button in the middle of numbers pad */
+.number:nth-child(10){
+  grid-column: 2;
+  grid-row: 4;
+}
+
+
+.decimal-delete{
+  background-color: #292828;
+}
+
+/* CHANGING COLOR OF BACK/DEL button  */
+.decimal-delete:nth-child(12){
+  background-color: #8a1127;
+}
+
+
+.equaldiv{
+  display: flex;
+}
+
+.equalsign{
+  width: 100%;
+  height: 3rem;
+  background-color: #4c634c;
+}
