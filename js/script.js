@@ -433,16 +433,22 @@ if(historyContainer.className.includes("hide")){
 
   historyContainer.classList.add("show");
 
-  historyinputs.style.opacity = "1";
-  historyresults.style.opacity = "1";
+  historyinputs.classList.add("showhistorycontent");
+  historyresults.classList.add("showhistorycontent");
+
+  historyinputs.classList.remove("hidehistorycontent");
+  historyresults.classList.remove("hidehistorycontent");
 
 }else {
   historyContainer.classList.remove("show");
 
   historyContainer.classList.add("hide");
 
-  historyinputs.style.opacity = "0";
-  historyresults.style.opacity = "0";
+  historyinputs.classList.add("hidehistorycontent");
+  historyresults.classList.add("hidehistorycontent");
+
+  historyinputs.classList.remove("showhistorycontent");
+  historyresults.classList.remove("showhistorycontent");
 
 }
 

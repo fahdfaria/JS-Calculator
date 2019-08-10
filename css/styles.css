@@ -33,14 +33,14 @@ body{
 
   position: relative;
   background-color: #36373d;
-  height: 100%;
-  width: 99%;
+  /* height: 100%;
+  width: 99%; */
 }
 
 main{
   /* margin: 0 auto; */
   margin-left: auto;
-  margin-right: auto;
+  margin-right: 10px;
   /* height: 92vh; */
 }
 
@@ -55,7 +55,6 @@ main{
 
 .calculatorContainer{
   position: relative;
-
 }
 
 .CalculatorGrid{
@@ -115,6 +114,16 @@ main{
   /* border: 1px red solid; */
 }
 
+.showhistorycontent{
+  display: block;
+  font-size: 0.8rem;
+
+}
+
+.hidehistorycontent{
+  display: none;
+}
+
 #historyinputs{
   grid-column: 1;
   /* border: 1px solid white; */
@@ -123,6 +132,7 @@ main{
 
 #historyresults{
     /* border: 1px solid white; */
+    grid-column: 2;
 
 
 }
