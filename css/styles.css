@@ -138,7 +138,7 @@ main{
 
 
 input{
-  height: 90px;
+  height: 5rem;
   overflow: auto;
   text-align: right;
   width: 100%;
@@ -146,7 +146,7 @@ input{
   background-color: #3f3f3f;
   color: #fff;
   font-family: 'Orbitron', sans-serif;
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   position: relative;
 }
 
@@ -194,21 +194,21 @@ button:hover, button:active {
 
 .resetclear{
   width: 100%;
-  height: 100%;
+  height: 3rem;
   background-color: #4c4c63;
   margin-left: 5px;
 }
 
 .ops, .extraops{
   width: 100%;
-  height: 60px;
+  height: 2.8rem;
   background-color: #636363;
   margin-left: 1px;
 }
 
 .number{
   width: 100%;
-  height: 80px;
+  height: 3rem;
   background-color: #292828;
   font-family: 'Orbitron', sans-serif;
 
@@ -237,6 +237,6 @@ button:hover, button:active {
 
 .equalsign{
   width: 100%;
-  height: 80px;
+  height: 3rem;
   background-color: #4c634c;
 }
