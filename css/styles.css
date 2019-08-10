@@ -100,7 +100,6 @@ main{
   grid-template-columns: auto auto;
   text-align: center;
   z-index: 1;
-  width: 90%;
   transition: 0.5s;
   background-color: black;
 }

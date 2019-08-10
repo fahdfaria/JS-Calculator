@@ -84,53 +84,53 @@ document.addEventListener("DOMContentLoaded", (event) => {
   calculationval.value = "";
   opsvalue.value = "";
 
-  document.onkeyup = (key) =>{
+  // document.onkeyup = (key) =>{
+  //
+  //   console.log(key.key);
+  //
+  //   let numbersDOM = document.querySelectorAll(".number");
+  //   let mainopsDOM = document.querySelectorAll(".ops");
+  //   let decimaldeleteDOM = document.querySelectorAll(".decimal-delete")
+  //
+  //   for (let i = 0; i < numbersDOM.length; i++) {
+  //     if (key.key == numbersDOM[i].accessKey) {
+  //       numbersDOM[i].click()
+  //     }
+  //   }
+  //
+  //   for (let i = 0; i < mainopsDOM.length; i++) {
+  //     if (key.key == mainopsDOM[i].accessKey) {
+  //       mainopsDOM[i].click()
+  //     }
+  //   }
+  //
+  //   if (key.key == "*") {
+  //     mainopsDOM[2].click();
+  //   }
+  //
+  //   if (key.key == "/" || key.key == String.raw`/`) {
+  //     mainopsDOM[3].click();
+  //   }
+  //
+  //   if (key.key == "Enter") {
+  //     equaldiv.click();
+  //   }
+  //
+  //   if (key.key == "Backspace") {
+  //     // numbersDOM[10].click()
+  //     decimaldeleteDOM[1].click()
+  //   }
+  //
+  //   if (key.key == "." || key.key == ",") {
+  //     // numbersDOM[10].click()
+  //     decimaldeleteDOM[0].click()
+  //   }
+  //
+  //
+  //   // console.log(key.key == );
+  // }
 
-    console.log(key.key);
-
-    let numbersDOM = document.querySelectorAll(".number");
-    let mainopsDOM = document.querySelectorAll(".ops");
-    let decimaldeleteDOM = document.querySelectorAll(".decimal-delete")
-
-    for (let i = 0; i < numbersDOM.length; i++) {
-      if (key.key == numbersDOM[i].accessKey) {
-        numbersDOM[i].click()
-      }
-    }
-
-    for (let i = 0; i < mainopsDOM.length; i++) {
-      if (key.key == mainopsDOM[i].accessKey) {
-        mainopsDOM[i].click()
-      }
-    }
-
-    if (key.key == "*") {
-      mainopsDOM[2].click();
-    }
-
-    if (key.key == "/" || key.key == String.raw`/`) {
-      mainopsDOM[3].click();
-    }
-
-    if (key.key == "Enter") {
-      equaldiv.click();
-    }
-
-    if (key.key == "Backspace") {
-      // numbersDOM[10].click()
-      decimaldeleteDOM[1].click()
-    }
-
-    if (key.key == "." || key.key == ",") {
-      // numbersDOM[10].click()
-      decimaldeleteDOM[0].click()
-    }
-
-
-    // console.log(key.key == );
-  }
-
-  numbersdiv.addEventListener("click", clickedNumber);
+  numbersdiv.addEventListener("mousedown", clickedNumber);
 
   function clickedNumber(event){
 
@@ -171,7 +171,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
 
 
-operatorsdiv.addEventListener("click", clickedMainOps);
+operatorsdiv.addEventListener("mousedown", clickedMainOps);
 
 const calculatorObj = {
   number: null,
@@ -300,7 +300,7 @@ function calculate(ops2, num2){
 
 }
 
-clearResetdiv.addEventListener("click", clickedCR);
+clearResetdiv.addEventListener("mousedown", clickedCR);
 
 function clickedCR(clearResetbutton){
 
@@ -328,7 +328,7 @@ function clickedCR(clearResetbutton){
 
 }
 
-extraopsdiv.addEventListener("click", clickedExtraOps);
+extraopsdiv.addEventListener("mousedown", clickedExtraOps);
 
 function clickedExtraOps(extraops){
 
@@ -387,7 +387,7 @@ function clickedExtraOps(extraops){
   }
 }
 
-equaldiv.addEventListener("click", equalbuttFunc);
+equaldiv.addEventListener("mousedown", equalbuttFunc);
 
 function equalbuttFunc(event){
 
