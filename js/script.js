@@ -80,57 +80,57 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
   //
 
-  screenvalue.value = "0";
+  screenvalue.value = "";
   calculationval.value = "";
   opsvalue.value = "";
 
-  // document.onkeyup = (key) =>{
-  //
-  //   console.log(key.key);
-  //
-  //   let numbersDOM = document.querySelectorAll(".number");
-  //   let mainopsDOM = document.querySelectorAll(".ops");
-  //   let decimaldeleteDOM = document.querySelectorAll(".decimal-delete")
-  //
-  //   for (let i = 0; i < numbersDOM.length; i++) {
-  //     if (key.key == numbersDOM[i].accessKey) {
-  //       numbersDOM[i].click()
-  //     }
-  //   }
-  //
-  //   for (let i = 0; i < mainopsDOM.length; i++) {
-  //     if (key.key == mainopsDOM[i].accessKey) {
-  //       mainopsDOM[i].click()
-  //     }
-  //   }
-  //
-  //   if (key.key == "*") {
-  //     mainopsDOM[2].click();
-  //   }
-  //
-  //   if (key.key == "/" || key.key == String.raw`/`) {
-  //     mainopsDOM[3].click();
-  //   }
-  //
-  //   if (key.key == "Enter") {
-  //     equaldiv.click();
-  //   }
-  //
-  //   if (key.key == "Backspace") {
-  //     // numbersDOM[10].click()
-  //     decimaldeleteDOM[1].click()
-  //   }
-  //
-  //   if (key.key == "." || key.key == ",") {
-  //     // numbersDOM[10].click()
-  //     decimaldeleteDOM[0].click()
-  //   }
-  //
-  //
-  //   // console.log(key.key == );
-  // }
+  document.onkeyup = (key) =>{
 
-  numbersdiv.addEventListener("mousedown", clickedNumber);
+    console.log(key.key);
+
+    let numbersDOM = document.querySelectorAll(".number");
+    let mainopsDOM = document.querySelectorAll(".ops");
+    let decimaldeleteDOM = document.querySelectorAll(".decimal-delete")
+
+    for (let i = 0; i < numbersDOM.length; i++) {
+      if (key.key == numbersDOM[i].accessKey) {
+        numbersDOM[i].click()
+      }
+    }
+
+    for (let i = 0; i < mainopsDOM.length; i++) {
+      if (key.key == mainopsDOM[i].accessKey) {
+        mainopsDOM[i].click()
+      }
+    }
+
+    if (key.key == "*") {
+      mainopsDOM[2].click();
+    }
+
+    if (key.key == "/" || key.key == String.raw`/`) {
+      mainopsDOM[3].click();
+    }
+
+    if (key.key == "Enter") {
+      equaldiv.click();
+    }
+
+    if (key.key == "Backspace") {
+      // numbersDOM[10].click()
+      decimaldeleteDOM[1].click()
+    }
+
+    if (key.key == "." || key.key == ",") {
+      // numbersDOM[10].click()
+      decimaldeleteDOM[0].click()
+    }
+
+
+    // console.log(key.key == );
+  }
+
+  numbersdiv.addEventListener("click", clickedNumber);
 
   function clickedNumber(event){
 
@@ -171,7 +171,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
 
 
-operatorsdiv.addEventListener("mousedown", clickedMainOps);
+operatorsdiv.addEventListener("click", clickedMainOps);
 
 const calculatorObj = {
   number: null,
@@ -185,7 +185,7 @@ function clickedMainOps(operator){
 
   // while (screenvalue.value != "0") {
 
-    if (calculatorObj.number == null && calculatorObj.secondNumber == false) {
+    if (calculatorObj.number == null && calculatorObj.secondNumber == false && screenvalue.value != "") {
 
       calculatorObj.number = parseFloat(screenvalue.value);
 
@@ -206,7 +206,7 @@ function clickedMainOps(operator){
 
       calculatorObj.secondNumber = false;
 
-      screenvalue.value = "0";
+      screenvalue.value = "";
 
       calculate(operator, secondNumber);
 
@@ -216,10 +216,7 @@ function clickedMainOps(operator){
 
   if(calculatorObj.number != null && screenvalue.value == "" ) {
 
-    if (operator != "÷") {
-
       calculatorObj.ops = operator;
-    }
 
   }
 
@@ -228,17 +225,19 @@ function clickedMainOps(operator){
     calculationval.value = `${calculatorObj.number} ${calculatorObj.ops}`;
   }
 
+  // if (screenvalue.value = "0" && operator == "÷") {
+  //
+  //
+  //
+  // }
+
   // if value on screen equals to zero / first number and everything is null / no ops
   else {
-
-    errordiv.classList.add("errormessage");
-    errordiv.style.opacity = "1";
-    errordiv.innerText = "You cannot start a calculation with 0 as first value. Please enter a number > to zero to start!";
+    errordiv.innerHTML =
+    `<p class="errormessage">It seems that there's no value to calculate. Please type or click a valid number.</p>`;
 
     setTimeout( () => {
-      errordiv.classList.remove("errormessage");
-      errordiv.style.opacity = "0";
-      errordiv.innerText = "";
+      errordiv.innerHTML = "";
     }, 3000)
   }
 
@@ -300,7 +299,7 @@ function calculate(ops2, num2){
 
 }
 
-clearResetdiv.addEventListener("mousedown", clickedCR);
+clearResetdiv.addEventListener("click", clickedCR);
 
 function clickedCR(clearResetbutton){
 
@@ -328,7 +327,7 @@ function clickedCR(clearResetbutton){
 
 }
 
-extraopsdiv.addEventListener("mousedown", clickedExtraOps);
+extraopsdiv.addEventListener("click", clickedExtraOps);
 
 function clickedExtraOps(extraops){
 
@@ -345,7 +344,7 @@ function clickedExtraOps(extraops){
 
   }
 
-  while (screenvalue.value != "0") {
+  while (screenvalue.value != "0" && screenvalue.value != "") {
 
     let resultotherops;
 
@@ -387,11 +386,11 @@ function clickedExtraOps(extraops){
   }
 }
 
-equaldiv.addEventListener("mousedown", equalbuttFunc);
+equaldiv.addEventListener("click", equalbuttFunc);
 
 function equalbuttFunc(event){
 
-  while (calculatorObj.ops !=null) {
+  while (calculatorObj.ops !=null && screenvalue.value != "") {
 
     console.log(calculatorObj);
 
@@ -414,16 +413,10 @@ function equalbuttFunc(event){
     break
   }
 
-
 }
 
 let calculationArray = [];
 let resultsArray = [];
-
-// historyContainer
-// historybutton
-// historyinputs
-// historyresults
 
 historybutton.onclick = (e) => {
 
