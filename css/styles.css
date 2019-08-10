@@ -39,9 +39,9 @@ body{
 
 main{
   /* margin: 0 auto; */
-  margin-left: auto;
+  margin-left: 10px;
   margin-right: 10px;
-  /* height: 92vh; */
+  height: 100vh;
 }
 
 #historybutton{
@@ -104,7 +104,7 @@ main{
   background-color: black;
 }
 .show{
-  height: 90%;
+  height: 80%;
   /* border: 1px white solid */
 }
 
