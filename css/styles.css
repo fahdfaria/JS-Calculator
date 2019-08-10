@@ -39,6 +39,8 @@ main{
   /* margin: 0 auto; */
   margin-left: 10px;
   margin-right: 10px;
+  max-width: 800px;
+  margin: 0 auto;
   /* height: 92vh; */
 }
 
@@ -48,6 +50,8 @@ main{
   margin: 0 auto;
   width: 90%;
   justify-content: center;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
 }
 
 
@@ -66,7 +70,6 @@ main{
 .displays{
   display: flex;
   flex-direction: column;
-  margin: 0 auto;
   /* border: black solid 1px; */
   /* position: relative; */
 }
@@ -77,14 +80,16 @@ main{
     margin: 0 auto;
     /* width: 100%; */
   /* border: black solid 1px; */
+  text-align: center;
+  /* transition: 0.5s */
 }
 
 #calculationval{
-  /* border: black solid 1px; */
+text-align: right;
 }
 
 #screenvalue{
-
+  text-align: right;
 }
 
 
@@ -94,12 +99,15 @@ main{
   right: 0;
   margin-left: auto;
   margin-right: auto;
+  width: 100%;
+  max-width: 800px;
   display: grid;
   grid-template-columns: auto auto;
   text-align: center;
   z-index: 1;
   transition: 0.5s;
-  background-color: black;
+  background-color: #292828;
+  overflow-x:hidden;
 }
 
 .show{
@@ -135,11 +143,22 @@ main{
 
 }
 
+.clearbutton{
+  position: absolute;
+  top: 2%;
+  right: 0;
+  left: 0;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: red;
+  font-size: 1rem;
+  border-radius: 5%;
+}
+
 
 input{
-  height: 5rem;
+  height: 100%;
   overflow: auto;
-  text-align: right;
   width: 100%;
   border-style: none;
   background-color: #3f3f3f;
@@ -168,6 +187,7 @@ button:hover, button:active {
   margin-bottom: 5px;
   margin-left: 1rem;
   margin-right: 1rem;
+
   /* justify-content: flex-end; */
 }
 
@@ -192,10 +212,12 @@ button:hover, button:active {
 }
 
 .resetclear{
-  width: 100%;
+  width: 20%;
   height: 3rem;
   background-color: #4c4c63;
   margin-left: 5px;
+  margin: 0 auto;
+
 }
 
 .ops, .extraops{

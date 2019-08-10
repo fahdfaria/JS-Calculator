@@ -183,9 +183,9 @@ function clickedMainOps(operator){
 
   operator = operator.target.innerText;
 
-  // while (screenvalue.value != "0") {
+  while (screenvalue.value != "") {
 
-    if (calculatorObj.number == null && calculatorObj.secondNumber == false && screenvalue.value != "") {
+    if (calculatorObj.number == null && calculatorObj.secondNumber == false) {
 
       calculatorObj.number = parseFloat(screenvalue.value);
 
@@ -200,7 +200,7 @@ function clickedMainOps(operator){
 
     }
 
-    else if (calculatorObj.secondNumber == true && screenvalue.value != "") {
+    else if (calculatorObj.secondNumber == true) {
 
       let secondNumber = parseFloat(screenvalue.value);
 
@@ -211,8 +211,8 @@ function clickedMainOps(operator){
       calculate(operator, secondNumber);
 
     }
-   // break
-  // }
+   break
+  }
 
   if(calculatorObj.number != null && screenvalue.value == "" ) {
 
@@ -225,6 +225,12 @@ function clickedMainOps(operator){
     calculationval.value = `${calculatorObj.number} ${calculatorObj.ops}`;
   }
 
+  // if (calculatorObj.number == 0 && operator == "÷" || calculatorObj.ops == "÷") {
+  //   console.log(calculatorObj);
+  // }
+
+
+
   // if (screenvalue.value = "0" && operator == "÷") {
   //
   //
@@ -232,14 +238,14 @@ function clickedMainOps(operator){
   // }
 
   // if value on screen equals to zero / first number and everything is null / no ops
-  else {
-    errordiv.innerHTML =
-    `<p class="errormessage">It seems that there's no value to calculate. Please type or click a valid number.</p>`;
-
-    setTimeout( () => {
-      errordiv.innerHTML = "";
-    }, 3000)
-  }
+  // else if (screenvalue.value == ""){
+  //   errordiv.innerHTML =
+  //   `<p class="errormessage">It seems that there's no value to calculate. Please type or click a valid number.</p>`;
+  //
+  //   setTimeout( () => {
+  //     errordiv.innerHTML = "";
+  //   }, 3000)
+  // }
 
 }
 
@@ -271,31 +277,43 @@ function calculate(ops2, num2){
   }
 
   if (ops == "÷") {
+    //
+    // if (num2 == "0") {
+    //
+    //   console.log("nope");
+    //
+    // }else {
+    //
+    // }
+      result = num / num2;
 
-    result = num / num2;
+
 
   }
 
-  console.log(result, num, ops, num2, ops2, calculatorObj);
 
-  calculatorObj.number = result;
+    console.log(result, num, ops, num2, ops2, calculatorObj);
 
-  calculatorObj.ops = ops2;
+    calculatorObj.number = result;
 
-  calculatorObj.secondNumber = true;
+    calculatorObj.ops = ops2;
 
-  opsvalue.value = `${num} ${ops} ${num2} `;
+    calculatorObj.secondNumber = true;
 
-  // = ${result}
+    opsvalue.value = `${num} ${ops} ${num2} `;
 
-  calculationArray.push(`${num} ${ops} ${num2}`);
+    // = ${result}
 
-  resultsArray.push(`${result}`)
+    calculationArray.push(`${num} ${ops} ${num2}`);
 
-  console.log(calculationArray);
+    resultsArray.push(`${result}`)
+
+    console.log(calculationArray);
 
 
-  return result;
+    return result;
+
+
 
 }
 
@@ -418,7 +436,23 @@ function equalbuttFunc(event){
 let calculationArray = [];
 let resultsArray = [];
 
+let clearbutton = document.createElement("button");
+clearbutton.innerText = "Clear";
+clearbutton.className = "clearbutton";
+
+
+clearbutton.onclick = (e) =>{
+  calculationArray = [];
+  resultsArray = [];
+  historyinputs.innerText = "";
+historyresults.innerText = "";
+
+historybutton.click();
+
+}
+
 historybutton.onclick = (e) => {
+
 
 if(historyContainer.className.includes("hide")){
 
@@ -432,6 +466,9 @@ if(historyContainer.className.includes("hide")){
   historyinputs.classList.remove("hidehistorycontent");
   historyresults.classList.remove("hidehistorycontent");
 
+  historyContainer.appendChild(clearbutton);
+
+
 }else {
   historyContainer.classList.remove("show");
 
@@ -443,13 +480,16 @@ if(historyContainer.className.includes("hide")){
   historyinputs.classList.remove("showhistorycontent");
   historyresults.classList.remove("showhistorycontent");
 
+  historyContainer.removeChild(clearbutton);
+
+
 }
 
 console.log(calculationArray, resultsArray);
 
 if (calculationArray.length > 0 && resultsArray.length > 0) {
-  historyinputs.innerText = calculationArray.join("\n");
-  historyresults.innerText = resultsArray.join("\n");
+  historyinputs.innerText = `Operations \n ${calculationArray.join("\n")}`
+  historyresults.innerText = `Results \n ${resultsArray.join("\n")}`;
 }
 
 
