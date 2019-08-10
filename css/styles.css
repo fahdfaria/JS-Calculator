@@ -33,12 +33,15 @@ body{
 
   position: relative;
   background-color: #36373d;
+  height: 100%;
+  width: 99%;
 }
 
 main{
   /* margin: 0 auto; */
   margin-left: auto;
   margin-right: auto;
+  /* height: 92vh; */
 }
 
 #historybutton{
@@ -84,6 +87,43 @@ main{
 }
 
 #screenvalue{
+
+}
+
+
+.historyContainer{
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  grid-template-columns: auto auto;
+  text-align: center;
+  z-index: 1;
+  width: 90%;
+  transition: 0.5s;
+  background-color: black;
+}
+.show{
+  height: 90%;
+  /* border: 1px white solid */
+}
+
+.hide{
+  height: 1%;
+  /* border: 1px red solid; */
+}
+
+#historyinputs{
+  grid-column: 1;
+  /* border: 1px solid white; */
+
+}
+
+#historyresults{
+    /* border: 1px solid white; */
+
 
 }
 

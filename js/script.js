@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
   let historyContainer = document.querySelector(".historyContainer");
   let historybutton = document.getElementById("historybutton");
   let historyinputs = document.getElementById("historyinputs");
-  let result = document.getElementById("result");
+  let historyresults = document.getElementById("historyresults");
 
   let errordiv = document.getElementById("error");
 
@@ -183,7 +183,7 @@ function clickedMainOps(operator){
 
   operator = operator.target.innerText;
 
-  while (screenvalue.value != "0") {
+  // while (screenvalue.value != "0") {
 
     if (calculatorObj.number == null && calculatorObj.secondNumber == false) {
 
@@ -196,11 +196,11 @@ function clickedMainOps(operator){
 
       calculatorObj.secondNumber = true;
 
-      screenvalue.value = "0";
+      screenvalue.value = "";
 
     }
 
-    else if (calculatorObj.secondNumber == true) {
+    else if (calculatorObj.secondNumber == true && screenvalue.value != "") {
 
       let secondNumber = parseFloat(screenvalue.value);
 
@@ -211,13 +211,16 @@ function clickedMainOps(operator){
       calculate(operator, secondNumber);
 
     }
+   // break
+  // }
 
-    break
-  }
+  if(calculatorObj.number != null && screenvalue.value == "" ) {
 
-  if(calculatorObj.number != null && screenvalue.value == "0" ) {
+    if (operator != "÷") {
 
-    calculatorObj.ops = operator;
+      calculatorObj.ops = operator;
+    }
+
   }
 
   if (calculatorObj.number != null && calculatorObj.ops !=null) {
@@ -238,9 +241,6 @@ function clickedMainOps(operator){
       errordiv.innerText = "";
     }, 3000)
   }
-
-
-
 
 }
 
@@ -288,6 +288,13 @@ function calculate(ops2, num2){
   opsvalue.value = `${num} ${ops} ${num2} `;
 
   // = ${result}
+
+  calculationArray.push(`${num} ${ops} ${num2}`);
+
+  resultsArray.push(`${result}`)
+
+  console.log(calculationArray);
+
 
   return result;
 
@@ -410,9 +417,44 @@ function equalbuttFunc(event){
 
 }
 
-historyContainer
-historybutton
-historyinputs
+let calculationArray = [];
+let resultsArray = [];
 
+// historyContainer
+// historybutton
+// historyinputs
+// historyresults
+
+historybutton.onclick = (e) => {
+
+if(historyContainer.className.includes("hide")){
+
+  historyContainer.classList.remove("hide");
+
+  historyContainer.classList.add("show");
+
+  historyinputs.style.opacity = "1";
+  historyresults.style.opacity = "1";
+
+}else {
+  historyContainer.classList.remove("show");
+
+  historyContainer.classList.add("hide");
+
+  historyinputs.style.opacity = "0";
+  historyresults.style.opacity = "0";
+
+}
+
+console.log(calculationArray, resultsArray);
+
+if (calculationArray.length > 0 && resultsArray.length > 0) {
+  historyinputs.innerText = calculationArray.join("\n");
+  historyresults.innerText = resultsArray.join("\n");
+}
+
+
+
+}
 
 });
